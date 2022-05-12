@@ -5,11 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/apolloClient";
+// CONTEXT
+import CountryState from "./context/country/CountryState";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <App />
+    <CountryState>
+      <App />
+    </CountryState>
   </ApolloProvider>
 );
 

@@ -1,22 +1,26 @@
-import "./App.css";
-import { useQuery } from "@apollo/client";
-import { GET_COUNTRIES } from "./apollo/querys";
+// CONTEXT
+import countryContext from "./context/country/CountryContext";
+import { useContext, useEffect } from "react";
+// components
+import Card from "./components/Card";
+import Input from "./components/Input";
 // styles
-import { Title } from "./styles/Title";
+import { Container, Title } from "./styles";
 
-function App() {
-  const { error, loading, data } = useQuery(GET_COUNTRIES);
+export default function App() {
+  const { getCountries, countries } = useContext(countryContext);
+
+  useEffect(() => {
+    getCountries();
+  }, []);
 
   return (
-    <div className="app">
-      <Title right size color="#ddee77">
-        hello world | {data?.countries.length} countries
-      </Title>
-      {data?.countries.map(({ name }) => (
-        <li key={name}>{name}</li>
+    <Container>
+      <Title>Country Search</Title>
+      <Input />
+      {countries?.map(({ name }) => (
+        <Card key={name} country={name} />
       ))}
-    </div>
+    </Container>
   );
 }
-
-export default App;
