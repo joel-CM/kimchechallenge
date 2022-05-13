@@ -11,4 +11,6 @@ export const Input = styled.input.attrs((props) => ({
   display: block;
   width: 100%;
   border-radius: 20px;
+  background: transparent;
+  z-index: 1;
 `;

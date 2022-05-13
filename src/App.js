@@ -2,8 +2,8 @@
 import countryContext from "./context/country/CountryContext";
 import { useContext, useEffect } from "react";
 // components
+import NavBar from "./components/Nav";
 import Card from "./components/Card";
-import Input from "./components/Input";
 // styles
 import { Container, Title } from "./styles";
 
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <Container>
       <Title>Country Search</Title>
-      <Input />
+      <NavBar />
       {countries?.map(({ name }) => (
         <Card key={name} country={name} />
       ))}
