@@ -32,35 +32,27 @@ const UserState = (props) => {
     const res = data.countries.filter((c) => {
       if (c.name.includes(country)) return c;
     });
-    let allLanguages = [];
-    res.forEach((c) => {
-      c.languages.forEach((lan) => allLanguages.push(lan.name));
-    });
-    allLanguages = [...new Set(allLanguages)];
-
-    const lanObj = {};
-    allLanguages.forEach((lan) => {
-      lanObj[lan] = [];
-    });
-
-    res.forEach((c) => {
-      c.languages.forEach((lan) => {
-        lanObj[lan.name].push(c.name);
-      });
-    });
     dispatch({
       type: types.SEARCH_COUNTRIES,
-      payload: lanObj,
+      payload: res,
     });
   };
-  const groupByLanguages = () => {
+  const groupByLanguages = async () => {
+    const { data } = await client.query({
+      query: apolloQueries.GET_COUNTRIES,
+    });
     dispatch({
       type: types.GROUP_BY_LANGUAGES,
+      payload: data.countries,
     });
   };
-  const groupByContinents = () => {
+  const groupByContinents = async () => {
+    const { data } = await client.query({
+      query: apolloQueries.GET_COUNTRIES,
+    });
     dispatch({
       type: types.GROUP_BY_CONTINENTS,
+      payload: data.countries,
     });
   };
 

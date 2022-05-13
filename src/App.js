@@ -8,7 +8,7 @@ import Card from "./components/Card";
 import { Container, Title } from "./styles";
 
 export default function App() {
-  const { getCountriesGroupByLanguages, countries } =
+  const { getCountriesGroupByLanguages, countries, groupBy } =
     useContext(countryContext);
 
   useEffect(() => {
@@ -19,14 +19,30 @@ export default function App() {
     <Container>
       <Title>Country Search</Title>
       <NavBar />
-      {Object.keys(countries).map((lan) => (
+      {groupBy === "languages" && (
         <>
-          {lan && <h2 style={{ background: "red" }}>{lan}</h2>}
-          {countries[lan].map((country) => (
-            <h3>{country}</h3>
+          {Object.keys(countries).map((lan) => (
+            <>
+              {lan && <h2 style={{ background: "red" }}>{lan}</h2>}
+              {countries[lan].map((country) => (
+                <h3>{country}</h3>
+              ))}
+            </>
           ))}
         </>
-      ))}
+      )}
+      {groupBy === "continents" && (
+        <>
+          {Object.keys(countries).map((continent) => (
+            <>
+              {continent && <h2 style={{ background: "red" }}>{continent}</h2>}
+              {countries[continent].map((country) => (
+                <h3>{country}</h3>
+              ))}
+            </>
+          ))}
+        </>
+      )}
     </Container>
   );
 }
