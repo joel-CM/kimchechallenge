@@ -8,18 +8,24 @@ import Card from "./components/Card";
 import { Container, Title } from "./styles";
 
 export default function App() {
-  const { getCountries, countries } = useContext(countryContext);
+  const { getCountriesGroupByLanguages, countries } =
+    useContext(countryContext);
 
   useEffect(() => {
-    getCountries();
+    getCountriesGroupByLanguages();
   }, []);
 
   return (
     <Container>
       <Title>Country Search</Title>
       <NavBar />
-      {countries?.map(({ name }) => (
-        <Card key={name} country={name} />
+      {Object.keys(countries).map((lan) => (
+        <>
+          {lan && <h2 style={{ background: "red" }}>{lan}</h2>}
+          {countries[lan].map((country) => (
+            <h3>{country}</h3>
+          ))}
+        </>
       ))}
     </Container>
   );

@@ -9,13 +9,14 @@ import client from "../../apollo/apolloClient";
 
 const UserState = (props) => {
   const initialState = {
-    countries: [],
+    countries: {},
+    groupBy: "languages",
   };
 
   const [state, dispatch] = useReducer(CountryReducer, initialState);
 
-  // actions
-  const getCountries = async () => {
+  // ############### actions ###############
+  const getCountriesGroupByLanguages = async () => {
     const res = await client.query({
       query: apolloQueries.GET_COUNTRIES,
     });
@@ -31,9 +32,35 @@ const UserState = (props) => {
     const res = data.countries.filter((c) => {
       if (c.name.includes(country)) return c;
     });
+    let allLanguages = [];
+    res.forEach((c) => {
+      c.languages.forEach((lan) => allLanguages.push(lan.name));
+    });
+    allLanguages = [...new Set(allLanguages)];
+
+    const lanObj = {};
+    allLanguages.forEach((lan) => {
+      lanObj[lan] = [];
+    });
+
+    res.forEach((c) => {
+      c.languages.forEach((lan) => {
+        lanObj[lan.name].push(c.name);
+      });
+    });
     dispatch({
       type: types.SEARCH_COUNTRIES,
-      payload: res,
+      payload: lanObj,
+    });
+  };
+  const groupByLanguages = () => {
+    dispatch({
+      type: types.GROUP_BY_LANGUAGES,
+    });
+  };
+  const groupByContinents = () => {
+    dispatch({
+      type: types.GROUP_BY_CONTINENTS,
     });
   };
 
@@ -41,8 +68,11 @@ const UserState = (props) => {
     <CountryContext.Provider
       value={{
         countries: state.countries,
-        getCountries,
+        getCountriesGroupByLanguages,
         searchCountry,
+        groupBy: state.groupBy,
+        groupByLanguages,
+        groupByContinents,
       }}
     >
       {props.children}

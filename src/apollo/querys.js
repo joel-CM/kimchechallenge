@@ -4,6 +4,9 @@ export const GET_COUNTRIES = gql`
   query {
     countries {
       name
+      languages {
+        name
+      }
     }
   }
 `;
