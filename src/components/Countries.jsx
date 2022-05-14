@@ -1,5 +1,5 @@
 // style
-import { Title } from "../styles";
+import { Title, Box } from "../styles";
 // components
 import CountryCard from "./CountryCard";
 // CONTEXT
@@ -14,26 +14,37 @@ export default function Countries() {
       {groupBy === "languages" && (
         <>
           {Object.keys(countries).map((lan) => (
-            <div key={lan}>
-              {lan && <Title as="h2">{lan}</Title>}
+            <Box key={lan}>
+              {lan && (
+                <Title as="h2" margin="0px 0px 21.44px 0px">
+                  {lan}
+                </Title>
+              )}
               {countries[lan].map((country) => (
                 <CountryCard key={country.name} {...country} />
               ))}
-            </div>
+            </Box>
           ))}
         </>
       )}
       {groupBy === "continents" && (
         <>
           {Object.keys(countries).map((continent) => (
-            <div key={continent}>
-              {continent && <Title as="h2">{continent}</Title>}
+            <Box key={continent}>
+              {continent && (
+                <Title as="h2" margin="0px 0px 21.44px 0px">
+                  {continent}
+                </Title>
+              )}
               {countries[continent].map((country) => (
                 <CountryCard key={"1_" + country.name} {...country} />
               ))}
-            </div>
+            </Box>
           ))}
         </>
+      )}
+      {!Object.keys(countries).length && (
+        <Title as="span">No country found...</Title>
       )}
     </>
   );

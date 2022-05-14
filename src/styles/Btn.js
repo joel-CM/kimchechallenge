@@ -9,10 +9,14 @@ export const Button = styled.button`
   color: ${(props) => (props.color ? props.color : "#000")};
   cursor: ${(props) => (props.cursor ? props.cursor : "pointer")};
   font-size: ${(props) => (props.size ? props.size : "16px")};
+  display: ${({ flex }) => (flex ? "flex" : "inline-block")};
+  justify-content: ${({ justify }) => (justify ? justify : "start")};
+  align-items: ${({ align }) => (align ? align : "start")};
   &:hover {
     outline: 1px solid #000;
   }
   &:active {
-    color: red;
+    position: relative;
+    background: #efefef;
   }
 `;

@@ -7,6 +7,10 @@ import { SearchContainer as search_container } from "./SearchContainer";
 import { SearchIcon as search_icon } from "./SearchIcon";
 import { List as list } from "./List";
 import { Item as item } from "./Item";
+import { FilterContainer as filter_container } from "./FilterContainer";
+import { Box as box } from "./Box";
+import { Text as text } from "./Text";
+import { GroupByIcon as group_by_icon } from "./GroupByIcon";
 
 export const Button = btn;
 export const Title = title;
@@ -17,3 +21,7 @@ export const SearchContainer = search_container;
 export const SearchIcon = search_icon;
 export const List = list;
 export const Item = item;
+export const FilterContainer = filter_container;
+export const Box = box;
+export const Text = text;
+export const GroupByIcon = group_by_icon;

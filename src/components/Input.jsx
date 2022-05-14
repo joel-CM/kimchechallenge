@@ -18,6 +18,7 @@ export default function Input() {
         type="text"
         placeHolder="Click to search"
         onChange={handleCountrySearch}
+        autoFocus="true"
       />
     </SearchContainer>
   );

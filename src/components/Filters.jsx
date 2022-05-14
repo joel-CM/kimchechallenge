@@ -1,22 +1,41 @@
 // styles
-import { Button } from "../styles";
+import {
+  Button,
+  Title,
+  FilterContainer,
+  Box,
+  Text,
+  GroupByIcon,
+} from "../styles";
 // CONTEXT
 import { useContext } from "react";
 import countryContext from "../context/country/CountryContext";
 
 export default function Filters() {
-  const { groupBy, groupByLanguages, groupByContinents } =
-    useContext(countryContext);
+  const {
+    groupBy: groupedBy,
+    groupByLanguages,
+    groupByContinents,
+  } = useContext(countryContext);
 
   return (
-    <>
-      <h2>Filters: {groupBy}</h2>
-      <Button size="20px" padding="10px 15px" onClick={groupByContinents}>
-        Continent
-      </Button>
-      <Button size="20px" padding="10px 15px" onClick={groupByLanguages}>
-        Languages
-      </Button>
-    </>
+    <FilterContainer>
+      <Box flex align="center" justify="center">
+        <Title as="h2" margin="30px 10px">
+          Group By:{" "}
+        </Title>
+        <Text size="32px">{groupedBy}</Text>
+      </Box>
+      <Box>
+        <Button size="20px" padding="10px 15px" onClick={groupByContinents}>
+          Continent
+          <GroupByIcon />
+        </Button>
+        <Button size="20px" padding="10px 15px" onClick={groupByLanguages}>
+          Languages
+          <GroupByIcon />
+        </Button>
+      </Box>
+    </FilterContainer>
   );
 }

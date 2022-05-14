@@ -4,7 +4,6 @@ import { useContext, useEffect } from "react";
 // components
 import NavBar from "./components/Nav";
 import Countries from "./components/Countries";
-import Card from "./components/CountryCard";
 // styles
 import { Container, Title } from "./styles";
 
@@ -18,7 +17,9 @@ export default function App() {
 
   return (
     <Container>
-      <Title>Country Search</Title>
+      <Title margin="40px 0px" size="3rem">
+        Country Search
+      </Title>
       <NavBar />
       <Countries />
     </Container>

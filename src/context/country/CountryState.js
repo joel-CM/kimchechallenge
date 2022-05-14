@@ -30,7 +30,7 @@ const UserState = (props) => {
       query: apolloQueries.GET_COUNTRIES,
     });
     const res = data.countries.filter((c) => {
-      if (c.name.includes(country)) return c;
+      if (c.name.toLowerCase().includes(country.toLowerCase())) return c;
     });
     dispatch({
       type: types.SEARCH_COUNTRIES,

@@ -1,3 +1,4 @@
+// components
 import Input from "./Input";
 import Filters from "./Filters";
 

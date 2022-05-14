@@ -11,8 +11,6 @@ export default function reducer(state, actions) {
     } else {
       res = groupByContinents(payload);
     }
-    console.log("group by", state.groupBy);
-    console.log(res);
     return {
       ...state,
       countries: res,
