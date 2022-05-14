@@ -1,6 +1,8 @@
 import * as types from "./types";
+// methods to group by languages & continents
 import { groupByLanguages, groupByContinents } from "../../assets/groupBy";
 
+// reducer
 export default function reducer(state, actions) {
   const { type, payload } = actions;
 

@@ -1,4 +1,5 @@
-export const groupByLanguages = (payload) => {
+// method to group by languages
+export const groupByLanguages = (payload) => { //payload = [countries]
   let allLanguages = [];
   payload.forEach((c) => {
     c.languages.forEach((lan) => allLanguages.push(lan.name));
@@ -18,7 +19,8 @@ export const groupByLanguages = (payload) => {
   return lanObj;
 };
 
-export const groupByContinents = (payload) => {
+// method to group by continents
+export const groupByContinents = (payload) => { // payload = [countries]
   let allContinents = [];
   payload.forEach((c) => {
     allContinents.push(c.continent.name);

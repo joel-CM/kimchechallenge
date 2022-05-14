@@ -5,6 +5,7 @@ import { useContext } from "react";
 import countryContext from "../context/country/CountryContext";
 
 export default function Input() {
+  // countryContext properties
   const { searchCountry } = useContext(countryContext);
 
   const handleCountrySearch = (e) => {
@@ -18,7 +19,7 @@ export default function Input() {
         type="text"
         placeHolder="Click to search"
         onChange={handleCountrySearch}
-        autoFocus="true"
+        autoFocus={true}
       />
     </SearchContainer>
   );

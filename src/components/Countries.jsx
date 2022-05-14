@@ -7,11 +7,29 @@ import { useContext } from "react";
 import countryContext from "../context/country/CountryContext";
 
 export default function Countries() {
-  const { groupBy, countries } = useContext(countryContext);
+  // countryContext properties
+  const { groupBy: groupedBy, countries } = useContext(countryContext);
+  // groupedBy = languages or continents
+
+  // if(groupedBy = languages)
+  // countries = {
+  //    Catalan: Array(2),
+  //    Arabic: Array(25),
+  //    Pashto: Array(1),
+  //    ...
+  // }
+
+  // if(groupedBy = continents)
+  // countries = {
+  //    Africa: (58) [{…}, {…}, {…}]
+  //    Antarctica: (5) [{…}, {…}, {…}, {…}, {…}]
+  //    Asia: (52) [{…}, {…}, {…}]
+  //    ...
+  // }
 
   return (
     <>
-      {groupBy === "languages" && (
+      {groupedBy === "languages" && (
         <>
           {Object.keys(countries).map((lan) => (
             <Box key={lan}>
@@ -27,7 +45,7 @@ export default function Countries() {
           ))}
         </>
       )}
-      {groupBy === "continents" && (
+      {groupedBy === "continents" && (
         <>
           {Object.keys(countries).map((continent) => (
             <Box key={continent}>

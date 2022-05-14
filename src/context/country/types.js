@@ -1,3 +1,4 @@
+// all types
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const SEARCH_COUNTRIES = "SEARCH_COUNTRIES";
 export const GROUP_BY_LANGUAGES = "GROUP_BY_LANGUAGES";

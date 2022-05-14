@@ -1,3 +1,4 @@
+// styles
 import { Title, Card, List, Item } from "../styles";
 
 export default function CountryCard(country) {

@@ -12,6 +12,7 @@ import { useContext } from "react";
 import countryContext from "../context/country/CountryContext";
 
 export default function Filters() {
+  // countryContext properties
   const {
     groupBy: groupedBy,
     groupByLanguages,
