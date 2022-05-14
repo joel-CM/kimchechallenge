@@ -5,6 +5,8 @@ import { Input as input } from "./Input";
 import { Card as card } from "./Card";
 import { SearchContainer as search_container } from "./SearchContainer";
 import { SearchIcon as search_icon } from "./SearchIcon";
+import { List as list } from "./List";
+import { Item as item } from "./Item";
 
 export const Button = btn;
 export const Title = title;
@@ -13,3 +15,5 @@ export const Input = input;
 export const Card = card;
 export const SearchContainer = search_container;
 export const SearchIcon = search_icon;
+export const List = list;
+export const Item = item;

@@ -12,7 +12,7 @@ export const groupByLanguages = (payload) => {
 
   payload.forEach((c) => {
     c.languages.forEach((lan) => {
-      lanObj[lan.name].push(c.name);
+      lanObj[lan.name].push(c);
     });
   });
   return lanObj;
@@ -31,7 +31,7 @@ export const groupByContinents = (payload) => {
   });
 
   payload.forEach((c) => {
-    continentObj[c.continent.name].push(c.name);
+    continentObj[c.continent.name].push(c);
   });
 
   return continentObj;
