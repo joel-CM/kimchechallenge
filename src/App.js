@@ -8,11 +8,11 @@ import Countries from "./components/Countries";
 import { Container, Title } from "./styles";
 
 export default function App() {
-  const { getCountriesGroupByLanguages, countries } =
+  const { getCountries, countries } =
     useContext(countryContext);
 
   useEffect(() => {
-    getCountriesGroupByLanguages();
+    getCountries();
   }, []);
 
   return (

@@ -16,7 +16,7 @@ const UserState = (props) => {
   const [state, dispatch] = useReducer(CountryReducer, initialState);
 
   // ############### actions ###############
-  const getCountriesGroupByLanguages = async () => {
+  const getCountries = async () => {
     const res = await client.query({
       query: apolloQueries.GET_COUNTRIES,
     });
@@ -60,7 +60,7 @@ const UserState = (props) => {
     <CountryContext.Provider
       value={{
         countries: state.countries,
-        getCountriesGroupByLanguages,
+        getCountries,
         searchCountry,
         groupBy: state.groupBy,
         groupByLanguages,
