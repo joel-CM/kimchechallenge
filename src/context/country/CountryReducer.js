@@ -43,7 +43,6 @@ export default function reducer(state, actions) {
 
   if (type === types.GROUP_BY_CONTINENTS) {
     const res = groupByContinents(payload);
-    console.log(res);
     return {
       ...state,
       groupBy: "continents",
