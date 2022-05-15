@@ -37,3 +37,11 @@ Acá van algunas cosas que pueden ser útiles (o no 👀):
 - [Eslint](https://eslint.org/)
 - [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [Husky](https://www.npmjs.com/package/husky)
+
+# Respuesta del challenge
+
+Existen muchas diferencias entre las bases de datos SQL y noSQL, ambas con sus ventajas y desventajas. En este caso, una de las desventajas de las bases de datos SQL es la dificultad de crecimiento, cuando estas bases de datos comienzan a crecer en volumen, el almacenamiento y el costo de mantenimiento se convierten en un problema de alto costo.
+
+Por otro lado, una de las principales ventajas de las bases de datos noSQL es la aplicacion de big data, grandes volúmenes son manejados fácilmente por las bases de datos noSQL.
+
+Más información: [link](https://guidocutipa.blog.bo/principales-ventajas-desventajas-bases-de-datos-relacionales-no-relacionales-nosql-vs-sql)
